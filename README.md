@@ -8,7 +8,7 @@ The contents within describe the Automation of the ELK Stack Deployment to Virtu
 The files in this repository were used to configure the network depicted in the VM Network Diagram.
 
        
-![alt](https://github.com/dhrice3/Virtual-ELK-Stack-Deployment-/Diagrams/VM_Cloud_Diagram.png)
+https://github.com/dhrice3/Virtual-ELK-Stack-Deployment-/Diagrams/VM_Cloud_Diagram.png
 
 These Ansible Playbook files have been tested and used to generate a live ELK deployment on Azure. These Ansible playbooks can be used to either recreate the entire deployment and internal infrastructure as illustrated above or pick and choose applications and tools to remove or implement systemwide. Alternatively, select portions of the Ansible Playbook file may be used to install and/or remove only certain tools or applications such as the Beats’ Filebeat and Metricbeat as described within.
 
