@@ -43,7 +43,6 @@ Integrating an ELK server into the Virtual environment allows users to easily mo
 | Web 1    | Server   | 10.0.0.5   | Linux            |
 | Web 2    | Server   | 10.0.0.6   | Linux            |
 | ELK      | Sys Logs | 10.1.0.4   | Linux            |
-|----------|----------|------------|------------------|
 
 
 ### Access Policies
@@ -55,14 +54,14 @@ The machines on the internal network are not exposed to the public Internet. Onl
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses    |
-|----------|---------------------|-------------------------|
-| Jump Box | Yes/No              | 10.0.0.4 | 73.106.98.65 |
-|          |                     | 10.0.0.4 | 10.0.2.15    |
-| ELK      | Yes/No              | 10.1.0.4 | 10.0.0.4     |
-| WEB1     | Yes/No              | 10.0.0.5 | 20.28.147.167|
-| WEB2     | Yes/No              | 10.0.0.6 | 20.28.147.167|
-|----------------------------------------------------------|
+| Name     | Publicly Accessible | Allowed IP Addresses       |
+|----------|---------------------|----------------------------|
+| Jump Box | Yes/No              | 10.0.0.4 -- 73.106.98.65   |
+|          |                     | 10.0.0.4 -- 10.0.2.15      |
+| ELK      | Yes/No              | 10.1.0.4 -- 10.0.0.4       |
+| WEB1     | Yes/No              | 10.0.0.5 -- 20.28.147.167  |
+| WEB2     | Yes/No              | 10.0.0.6 -- 20.28.147.167  |
+
 Developing and implementing the Virtual Network required the entry knowledge of systems administration, virtualization, cloud, and automation skills.
 
 A threat/risk will leave a trace that can be followed and investigated using log files as a source. Kibana is an effective interface for visual representations of all log files received from multiple systems allowing detailed analysis of system-wide logged events or logged events for a specific machine or set of machines.
@@ -80,9 +79,7 @@ The install-elk.yml playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-       
-       Images/docker_ps_output.png
-
+![alt](https://github.com/dhrice3/Virtual-ELK-Stack-Deployment-/blob/47851f8c5d8d00b15875480ed06273ea6f8af6e3/Diagrams/docker_ps_output.png)     
 
 ### Target Machines & Beats
 
@@ -116,23 +113,26 @@ The Ansible’s HOSTS file contains groups, which represent the servers’ names
 Some specific commands the user will need to run to access the playbook, update the files, etc. are provided below:
 
 Update the HOSTS and ANSIBLE.CFG files in the ansible directory.
-       :/etc/ansible# sudo nano -c hosts.yml 
-       :/etc/ansible# sudo nano -c ansible.cfg
-       
+
+    - /etc/ansible# sudo nano -c hosts.yml
+    - /etc/ansible# sudo nano -c ansible.cfg
+  
+<br>  
 Commands used to install ELK:
-       :/etc/ansible# sudo nano install-elk.yml 
-       :/etc/ansible# ansible-playbook install-elk.yml 
-       :/etc/ansible# ansible webserver -m ping      
 
-Commands to manually start the ELK container:
-# sudo docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it --name elk sebp/elk:761
+    - /etc/ansible# sudo nano install-elk.yml 
+    - /etc/ansible# ansible-playbook install-elk.yml 
+    - /etc/ansible# ansible webserver -m ping
 
-Command to verify the container is up and running successfully:
-# docker run hello-world
+Commands to manually start the ELK container: 
+$ sudo docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it --name elk sebp/elk:761
 
-Command to start the docker container:
+Command to verify the container is up and running successfully: 
+$ docker run hello-world
+
+Command to start the docker container: 
 $ sudo docker start <container name>
 
-Command to attach to the docker container:
+Command to attach to the docker container: 
 $ sudo docker attach <container name>
 
